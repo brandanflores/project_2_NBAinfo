@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS SportsFans_db;
+CREATE DATABASE SportsFans_db;
