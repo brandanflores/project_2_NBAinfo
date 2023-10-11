@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Project } = require('../../../SportsFans/Develop/models');
+const { Project } = require('../../models/Project');
 
 
 const url = 'https://nba-latest-news.p.rapidapi.com/articles';
@@ -11,13 +11,13 @@ const options = {
 	}
 };
 
-try {
-	const response = await fetch(url, options);
-	const result = await response.text();
-	console.log(result);
-} catch (error) {
-	console.error(error);
-}
+// try {
+// 	const response = await fetch(url, options);
+// 	const result = await response.text();
+// 	console.log(result);
+// } catch (error) {
+// 	console.error(error);
+// }
 
 
 router.post('/', async (req, res) => {
