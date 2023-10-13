@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Sport Fans</title>
+</head>
+<body>
+    <header class="header">
+        <h1>Sports News</h1>
+        <ul> 
+        <li>
+            <a href="#Home">Home</a>
+        </li>
+        <li>
+            <a href="#News">News</a>
+        </li>
+        <li>
+            <a href="#Comment">Comment</a>
+        </li>
+    </ul>
+       
+    </header>
+   
+    <img class="sports"></img>
+    <section>
+        <ul class="Home">
+            <img src="" class="Welcome"/>
+            <h2>Home Page</h2>
+            <p>
+                Welcome to the world of all sports news
+            </p>
+        </ul>
+    </section>
+
+    <section>
+        <ul class="News">
+            <h2>News Page</h2>
+        </ul>
+    </section>
+
+    <section>
+        <ul class="Comment">
+            <h2>Comment Section</h2>
+            <form id="commentForm">
+        
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br>
+        
+                <input type="submit" value="Submit Comment">
+            </form>
+            <div id="comments">
+                <!-- Comments will be added here via JavaScript -->
+            </div>
+        
+            <script>
+                // JavaScript to handle comment submission
+                document.getElementById("commentForm").addEventListener("submit", function(event) {
+                    event.preventDefault();
+        
+                    const name = document.getElementById("username").value;
+                    const commentText = document.getElementById("comment").value;
+        
+                    // Create a new comment element
+                    const commentElement = document.createElement("div");
+                    commentElement.className = "comment";
+                    commentElement.innerHTML = `<strong>${name}:</strong> ${commentText}`;
+        
+                    // Append the comment to the comments section
+                    document.getElementById("comments").appendChild(commentElement);
+        
+                    // Clear the input fields
+                    document.getElementById("name").value = "";
+                    document.getElementById("comment").value = "";
+                });
+            </script>
+
+        </ul>
+    </section>
+</body>
+
+</html>
