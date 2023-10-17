@@ -42,6 +42,8 @@ router.delete('/:id', async (req, res) => {
       },
     });
 
+    // 
+
     if (!projectData) {
       res.status(404).json({ message: 'No project found with this id!' });
       return;
