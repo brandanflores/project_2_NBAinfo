@@ -1,84 +1,99 @@
-**Sports Fans**
+Sports Fans
 
-**License:** MIT Contributor Covenant
+License: MIT Contributor Covenant
 
-## Table of Contents
+Table of Contents
 
-- [Description](#description)
-- [Live URL](#live-url)
-- [Technologies Used](#technologies-used)
-- [Credits](#credits)
-- [Features](#features)
-- [Usage Information](#usage-information)
-- [Suggested Future Development](#suggested-future-development)
-- [Contribution Guidelines](#contribution-guidelines)
-- [License](#license)
-- [Questions](#questions)
+Description
 
-## Description
+Live-URL
 
-Are you or someone you know experiencing writer's block? Look no further than Fusion Fables. It's the platform for creative minds to shine. Showcase your work, join our community, and collaborate with other talented professionals in a melting pot of creativity that's sure to get your creative juices flowing.
+Live-Screen-Recording-of-Application-Functionality
 
-Fusion Fables was created for writers to unite, harnessing the power of collaboration and community. It's a space where innovation can flourish beyond the capabilities of one mind alone. Join our community and let this intuitive platform elevate your narratives to uncharted realms.
+Screenshots
 
-Our team's motivation behind this application was to build a collaborative space where writers could cultivate new ideas for their work and breathe new life into stagnant ones. This marked our team's very first full-stack web application. It utilizes a MySQL database, API middleware, and a sleek, brand-forward UI.
+Technologies-Used
 
-Challenges faced during development included git merge conflicts, implementing the Handlebars template engine, a tight two-week timeline, and project bloat. However, these challenges were outweighed by our successes, including exceeding our MVP (implementation of additional routing and functionality), project strategy and task delegation, pair programming, and the direct application of an agile workflow.
+Installation
 
-## Live URL
+Credits
 
-[Link to the live application](https://github.com/brandanflores/project_2_NBAinfo)
+Features
 
-## Technologies Used
+Usage-Information
 
-This application is powered by:
-- Node.js (v16.19.1)
-- Express.js (v14.18.2)
-- JavaScript
-- MySQL
-- Sequelize (ORM)
-- Handlebars (template engine)
+Suggested-Future-Development
 
-## Credits
+Contribution-Guidelines
 
-Our team of contributors:
-- Alfredo/Parvathy: Backend framework, routing, user authentication, API routing, database modeling, and frontend functionality (edit/delete functionality).
-- John: Styling the application, frontend functionality, and Handlebars templating.
-- Brandan: Application deployment. overall help. 
+Test-Instructions
 
-## Features
+License
 
-- Robust API functionality for up-to-date NBA news from various sources.
-- User account creation for community engagement.
-- Commenting on news articles to encourage discussions.
+Questions
 
-## Usage Information
+Description
 
-Using this application is intuitive. Upon visiting the Sports Fans website, users can access news gathered from our API. To comment on news feeds, users have the option to create an account.
+Are you or a creative talent you know experiencing writers block? Well then fusion fables is the platform for you. Showcase your work, join our community and collaborate with other talented professionals in a melting pot of creativity that is sure to get you out of your rut and back onto the road.
 
-## Suggested Future Development
+Fusion Fables was established for writers to come together to harness the fusion of collaboration and community. This is the space where innovation can be allowed to exceed beyond the power of one mind. Join our community, and allow this intuitive platform to springboard your narratives to unimagined realms.
 
-- Commenting functionality.
-- Implementation of a subscription-based platform.
-- Liking and disliking comments and articles.
-- Sharing articles.
-- Account creation.
+Our teams motivation behind making this application was to create a collaborative site where writers can come and cultivate new ideas for their current work and contribute to others, giving new life to stagnating ideas. This was our teams very first full stack web application. It utilizes a MySQL database, API middleware, and a clean, brand forward facing UI.
 
- To suggest changes, please open an issue and make modifications on a feature branch, awaiting approval before merging into the main branch.
+Challenges faced while creating the application were git merge conflicts, the utilization of the Handlebars template engine, our 2 week time crunch, and project bloating. However much of these were overshadowed by our successes which included exceeding our MVP (implementation of additional routing and functionality), project strategy and task delegation, pair programming, and direct application of an agile work flow.
 
-**NOTICE:** Contributor Covenant is released under the Creative Commons Attribution 4.0 International Public License, which requires attribution.
+Live URL
 
-## Test Instructions
+https://github.com/brandanflores/project_2_NBAinfo
 
-Currently, there are no unit tests written for this application.
+Technologies Used
 
-## License
+This application is powered by Node.js (v16.19.1), Express.js (v.14.18.2), JavaScript, MySQL, Sequelize (ORM), and Handlebars (template engine). It utilizes the node package manager (npm) dependencies sequelize (v6.31.1), mysql2 (v3.3.0), express (v4.18.2), dotenv (16.0.3v), nodemon (v2.0.22), bcrypt (v.5.1.0), connect-session-sequelize(v.7.1.6), eslint (v.8.40.0), express-handlebars (v7.0.7), express-session (v1.17.3), and moment (v2.29.4). Jest (v.29.5.0) is installed for future unit testing. Also, the Insomnia application was utilized to test the functionality of routes within the program.
 
-**NOTICE:** This application is covered under the MIT License.
+NodeJS Express.js JavaScript MySQL NPM Sequelize Nodemon Jest Insomnia ESLint
 
-Have additional questions? Reach out to us through GitHub:
 
-- [John's GitHub](https://github.com/JRollins089)
-- [Parvathy's GitHub](https://github.com/Parvathyaravin)
-- [Brandan's GitHub](https://github.com/brandanflores)
-- [Alfredo's GitHub](https://github.com/Donsidious)
+Credits
+
+Our team of contributors -> Alfredo/Parvathy handled much of the backend framework, routing, and user authentication, API routing and backend framework, database modeling and frontend functionality (edit/delete functionality). john took charge of styling the application, frontend functionality, and handlebars templating. Brandan, addressed application deployment.  
+
+Features
+
+The application boasts a robust feature set, prominently highlighted by its API functionality, allowing users to effortlessly access a wide array of up to date news from an extensive selection of NBA outlets. This feature not only keeps users well informed but also enhances their engagement with the dynamic world of NBA news. Moreover, the application offers users the opportunity to create personalized accounts, fostering a sense of community within the platform. These accounts empower users to actively participate in discussions by posting comments on a diverse range of news articles.
+
+usage Information
+
+Usage of this application is very intuitive, once users visit the site Sportsfans, they will all the news gathered from our api. Users have the ability to make a login is they choose to be able to comment on news feeds. 
+
+Suggested Future Development 
+
+ability to comment
+have a subscription based platform
+ability to like and dislike comments
+ability to like and dislike articles
+ability to share articles
+being able to create accounts. 
+
+
+
+Open to collaboration, if you choose to do so open an issue and modify any changes you would like to see on a feature branch and wait for approval before merging to the main branch.
+
+NOTICE: Contributor Covenant is released under the Creative Commons Attribution 4.0 International Public License, which requires that attribution be included.
+
+Test Instructions
+
+There is currently no unit testing written yet for this application.
+
+License
+
+NOTICE: This application is covered under the MIT License
+
+Have additional questions? Click the links below to us reach us through GitHub.
+
+John: Link to Github https://github.com/JRollins089
+
+Parvathy: Link to Github https://github.com/Parvathyaravin
+
+brandan: Link to Github https://github.com/brandanflores
+
+Alfredo: Link to Github https://github.com/Donsidious
