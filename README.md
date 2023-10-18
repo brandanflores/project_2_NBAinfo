@@ -1,96 +1,84 @@
-# Module 14 Mini-Project: Crowdfunding App
+**Sports Fans**
 
-In this mini-project, you will work with a group to build a full-stack crowdfunding app using Node.js, Express.js, Sequelize, Handlebars.js, and MVC architecture.
+**License:** MIT Contributor Covenant
 
-## User Stories
+## Table of Contents
 
-* As a user, I want to see a list of current projects seeking funding.
+- [Description](#description)
+- [Live URL](#live-url)
+- [Technologies Used](#technologies-used)
+- [Credits](#credits)
+- [Features](#features)
+- [Usage Information](#usage-information)
+- [Suggested Future Development](#suggested-future-development)
+- [Contribution Guidelines](#contribution-guidelines)
+- [License](#license)
+- [Questions](#questions)
 
-* As a user, I want to be able to create an account.
+## Description
 
-* As a registered user, I want to post my own projects to ask for funding.
+Are you or someone you know experiencing writer's block? Look no further than Fusion Fables. It's the platform for creative minds to shine. Showcase your work, join our community, and collaborate with other talented professionals in a melting pot of creativity that's sure to get your creative juices flowing.
 
-### Acceptance Criteria
+Fusion Fables was created for writers to unite, harnessing the power of collaboration and community. It's a space where innovation can flourish beyond the capabilities of one mind alone. Join our community and let this intuitive platform elevate your narratives to uncharted realms.
 
-* It's done when the `/` homepage route renders a list of all projects from the database.
+Our team's motivation behind this application was to build a collaborative space where writers could cultivate new ideas for their work and breathe new life into stagnant ones. This marked our team's very first full-stack web application. It utilizes a MySQL database, API middleware, and a sleek, brand-forward UI.
 
-* It's done when the `/project/:id` route renders an individual project's details based on the route parameter id.
+Challenges faced during development included git merge conflicts, implementing the Handlebars template engine, a tight two-week timeline, and project bloat. However, these challenges were outweighed by our successes, including exceeding our MVP (implementation of additional routing and functionality), project strategy and task delegation, pair programming, and the direct application of an agile workflow.
 
-* It's done when the `/login` route renders a form to log in and a form to create a new account.
+## Live URL
 
-* It's done when an existing user can enter their credentials on the login page to create a session on the server.
+[Link to the live application](https://github.com/brandanflores/project_2_NBAinfo)
 
-* It's done when a new user can create an account on the login page and then be immediately logged in with a session.
+## Technologies Used
 
-* It's done when the `/profile` route renders the logged-in user's projects and a form to create a new project.
+This application is powered by:
+- Node.js (v16.19.1)
+- Express.js (v14.18.2)
+- JavaScript
+- MySQL
+- Sequelize (ORM)
+- Handlebars (template engine)
 
-* It's done when only a logged in user can visit the `/profile` route.
+## Credits
 
-* It's done when a logged in user is redirected to `/profile` when they try to visit `/login` again.
+Our team of contributors:
+- Alfredo/Parvathy: Backend framework, routing, user authentication, API routing, database modeling, and frontend functionality (edit/delete functionality).
+- John: Styling the application, frontend functionality, and Handlebars templating.
+- Brandan: Application deployment. overall help. 
 
-* It's done when a user on the profile page can use the form to create a new project in the database.
+## Features
 
-* It's done when a user on the profile page can select a "Delete" button to remove their project from the database.
+- Robust API functionality for up-to-date NBA news from various sources.
+- User account creation for community engagement.
+- Commenting on news articles to encourage discussions.
 
-* It's done when a logged-in user can select a "Logout" button to remove their session.
+## Usage Information
 
-* It's done when the session for a logged-in user expires after a set time.
+Using this application is intuitive. Upon visiting the Sports Fans website, users can access news gathered from our API. To comment on news feeds, users have the option to create an account.
 
-* It's done when the API routes to create and delete posts are protected from non logged-in users.
+## Suggested Future Development
 
-* It's done when the code is organized using MVC architecture.
+- Commenting functionality.
+- Implementation of a subscription-based platform.
+- Liking and disliking comments and articles.
+- Sharing articles.
+- Account creation.
 
-* It's done when the views are rendered with Handlebars.js templates.
+ To suggest changes, please open an issue and make modifications on a feature branch, awaiting approval before merging into the main branch.
 
-## Specifications 
+**NOTICE:** Contributor Covenant is released under the Creative Commons Attribution 4.0 International Public License, which requires attribution.
 
-* The database models have the following fields and associations:
+## Test Instructions
 
-  * `User`
+Currently, there are no unit tests written for this application.
 
-    * `id`: primary key
+## License
 
-    * `name`
+**NOTICE:** This application is covered under the MIT License.
 
-    * `email`
+Have additional questions? Reach out to us through GitHub:
 
-    * `password`
-
-  * `Project`
-
-    * `id`: primary key
-
-    * `name`
-
-    * `description`
-
-    * `date_created`
-
-    * `needed_funding`
-
-    * `user_id`: foreign key that references `User.id`
-
-  * Users have many projects, and projects belong to a user.
-
-    * If a user is deleted, all associated projects are also deleted.
-
----
-
-## 💡 Hints
-
-* What tools can you use to test the existing API routes if you don't yet have a front end?
-
-* Where would you place the client-side JavaScript for capturing form data?
-
-* How can middleware help protect routes from non logged-in users?
-
-* How can Handlebars.js helpers (both built-in and custom) be used to render the desired results?
-
-## 🏆 Bonus
-
-If you have completed this activity, work through the following challenge with your partner to further your knowledge:
-
-* Add an `/edit/:id` route for logged in users to update their projects' details. Then deploy the app to Heroku!
-
----
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+- [John's GitHub](https://github.com/JRollins089)
+- [Parvathy's GitHub](https://github.com/Parvathyaravin)
+- [Brandan's GitHub](https://github.com/brandanflores)
+- [Alfredo's GitHub](https://github.com/Donsidious)
