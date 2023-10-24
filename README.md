@@ -17,13 +17,8 @@
 
 ## Description
 
-Are you or someone you know experiencing writer's block? Look no further than Fusion Fables. It's the platform for creative minds to shine. Showcase your work, join our community, and collaborate with other talented professionals in a melting pot of creativity that's sure to get your creative juices flowing.
+Sports Fans is your go to in getting the best News about the NBA. Our webpage allows you to comment on news articles.
 
-Fusion Fables was created for writers to unite, harnessing the power of collaboration and community. It's a space where innovation can flourish beyond the capabilities of one mind alone. Join our community and let this intuitive platform elevate your narratives to uncharted realms.
-
-Our team's motivation behind this application was to build a collaborative space where writers could cultivate new ideas for their work and breathe new life into stagnant ones. This marked our team's very first full-stack web application. It utilizes a MySQL database, API middleware, and a sleek, brand-forward UI.
-
-Challenges faced during development included git merge conflicts, implementing the Handlebars template engine, a tight two-week timeline, and project bloat. However, these challenges were outweighed by our successes, including exceeding our MVP (implementation of additional routing and functionality), project strategy and task delegation, pair programming, and the direct application of an agile workflow.
 
 ## Live URL
 
