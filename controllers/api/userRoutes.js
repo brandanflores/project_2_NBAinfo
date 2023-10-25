@@ -1,61 +1,142 @@
 const router = require('express').Router();
-const { User } = require('../../models/User');
+const { User, Post, Comment, Revision } = require('../models');
 
-router.post('/', async (req, res) => {
-  try {
-    const userData = await User.create(req.body);
+// RENDERS: 'post.handlebars' => READ one POST by ID
+router.get('/:u/:id', async (req, res) => {
+    try {
+        const postData = await Post.findByPk( req.params.id, {
+            include: [{
+                model: User,
+                attributes: { exclude: ['password', 'email'] },
+            },
+            {
+                model: Revision,
+                include: {
+                    model: User,
+                    attributes: ['username'],
+                },
+                order: [['created_at', 'ASC']]
+            },
+            {
+                model: Comment,
+                include: {
+                    model: User,
+                    attributes: ['id', 'username'],
+                },            
+                order: [['created_at', 'DESC']]
+            }],
+        });
+        
+        if (!postData) {
+            res.render('404', {
+                loggedIn: req.session.logged_in,
+            });
+            return;
+        };
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+        // Adds verification of user to post
+        const myBlog = req.session.user_id === postData.user.id;
+        const post = postData.get({ plain: true });
+        post['myBlog'] = myBlog;
 
-      res.status(200).json(userData);
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
+        // Adds verification of user to comments
+        const comments = postData.comments.map(comment => {
+            const myComment = req.session.user_id === comment.user.id;
+            const c = comment.get({ plain: true });
+            c['myComment'] = myComment;
+            return c;
+        });
+
+        console.log(comments);
+
+        res.render("post", {
+            post,
+            comments,
+            loggedIn: req.session.logged_in,
+            userId: req.session.user_id,
+        });
+
+    } catch(err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 });
 
-router.post('/login', async (req, res) => {
-  try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+// RENDERS: 'userPage.handlebars' => READ one user by ID OR Username
+router.get('/:u', async (req, res) => {
+    try {
+        let userData;
+        if(isNaN(req.params.u)) {
+            userData = await User.findOne({
+                where: {
+                    username: req.params.u,
+                },
+                include: {
+                    model: Post,
+                    include: [{
+                        model: Comment,
+                        include: {
+                            model: User,
+                            attributes: ['id', 'username'],
+                        },
+                        order: [['created_at', 'DESC']]
+                    }, {
+                        model: User,
+                        attributes: ['id', 'username']
+                    }],
+                    order: [['created_at', 'DESC']]
+                },
+                attributes: { exclude: ['password', 'email'] }
+            });
 
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
+        } else {
+            userData = await User.findByPk(req.params.u, {
+                include: {
+                    model: Post,
+                    include: {
+                        model: Comment,
+                        include: {
+                            model: User,
+                            attributes: ['id', 'username'],
+                        },
+                        order: [['updated_at', 'DESC']]
+                    },
+                    order: [['updated_at', 'DESC']]
+                },
+                attributes: { exclude: ['password', 'email'] }
+            });
+        }
+
+        if (!userData) {
+            res.render('404', {
+                loggedIn: req.session.logged_in,
+            });
+            return;
+        }
+        
+        const myBlog = req.session.user_id === userData.id;
+
+        // Converts to simple object array
+        const postsJson = userData.posts.map((p) => p.get({ plain: true }));
+
+        // Adds myBlog to objects in array
+        const finalPosts = postsJson.map((p) => {
+            p['myBlog'] = myBlog;
+            return p;
+        });
+
+        res.render('userPage', {
+            user: userData.get({ plain: true }),
+            posts: finalPosts,
+            loggedIn: req.session.logged_in,
+            userId: req.session.user_id,
+            myBlog,
+        });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
     }
-
-    const validPassword = await userData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-      
-      res.json({ user: userData, message: 'You are now logged in!' });
-    });
-
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
 });
 
 module.exports = router;
