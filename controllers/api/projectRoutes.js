@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Project } = require('../../models/Project');
+const withAuth = require('../../utils/auth');
 
 
 const url = 'https://nba-latest-news.p.rapidapi.com/articles';
@@ -19,8 +20,8 @@ const options = {
 // 	console.error(error);
 // }
 
-
-router.post('/', async (req, res) => {
+// localhost:3001/api/projects
+router.post('/', withAuth, async (req, res) => {
   try {
     const newProject = await Project.create({
       ...req.body,

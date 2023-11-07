@@ -1,96 +1,99 @@
-# Module 14 Mini-Project: Crowdfunding App
+Sports Fans
 
-In this mini-project, you will work with a group to build a full-stack crowdfunding app using Node.js, Express.js, Sequelize, Handlebars.js, and MVC architecture.
+License: MIT Contributor Covenant
 
-## User Stories
+Table of Contents
 
-* As a user, I want to see a list of current projects seeking funding.
+Description
 
-* As a user, I want to be able to create an account.
+Live-URL
 
-* As a registered user, I want to post my own projects to ask for funding.
+Live-Screen-Recording-of-Application-Functionality
 
-### Acceptance Criteria
+Screenshots
 
-* It's done when the `/` homepage route renders a list of all projects from the database.
+Technologies-Used
 
-* It's done when the `/project/:id` route renders an individual project's details based on the route parameter id.
+Installation
 
-* It's done when the `/login` route renders a form to log in and a form to create a new account.
+Credits
 
-* It's done when an existing user can enter their credentials on the login page to create a session on the server.
+Features
 
-* It's done when a new user can create an account on the login page and then be immediately logged in with a session.
+Usage-Information
 
-* It's done when the `/profile` route renders the logged-in user's projects and a form to create a new project.
+Suggested-Future-Development
 
-* It's done when only a logged in user can visit the `/profile` route.
+Contribution-Guidelines
 
-* It's done when a logged in user is redirected to `/profile` when they try to visit `/login` again.
+Test-Instructions
 
-* It's done when a user on the profile page can use the form to create a new project in the database.
+License
 
-* It's done when a user on the profile page can select a "Delete" button to remove their project from the database.
+Questions
 
-* It's done when a logged-in user can select a "Logout" button to remove their session.
+Description
 
-* It's done when the session for a logged-in user expires after a set time.
+Are you or a creative talent you know experiencing writers block? Well then fusion fables is the platform for you. Showcase your work, join our community and collaborate with other talented professionals in a melting pot of creativity that is sure to get you out of your rut and back onto the road.
 
-* It's done when the API routes to create and delete posts are protected from non logged-in users.
+Fusion Fables was established for writers to come together to harness the fusion of collaboration and community. This is the space where innovation can be allowed to exceed beyond the power of one mind. Join our community, and allow this intuitive platform to springboard your narratives to unimagined realms.
 
-* It's done when the code is organized using MVC architecture.
+Our teams motivation behind making this application was to create a collaborative site where writers can come and cultivate new ideas for their current work and contribute to others, giving new life to stagnating ideas. This was our teams very first full stack web application. It utilizes a MySQL database, API middleware, and a clean, brand forward facing UI.
 
-* It's done when the views are rendered with Handlebars.js templates.
+Challenges faced while creating the application were git merge conflicts, the utilization of the Handlebars template engine, our 2 week time crunch, and project bloating. However much of these were overshadowed by our successes which included exceeding our MVP (implementation of additional routing and functionality), project strategy and task delegation, pair programming, and direct application of an agile work flow.
 
-## Specifications 
+Live URL
 
-* The database models have the following fields and associations:
+https://github.com/brandanflores/project_2_NBAinfo
 
-  * `User`
+Technologies Used
 
-    * `id`: primary key
+This application is powered by Node.js (v16.19.1), Express.js (v.14.18.2), JavaScript, MySQL, Sequelize (ORM), and Handlebars (template engine). It utilizes the node package manager (npm) dependencies sequelize (v6.31.1), mysql2 (v3.3.0), express (v4.18.2), dotenv (16.0.3v), nodemon (v2.0.22), bcrypt (v.5.1.0), connect-session-sequelize(v.7.1.6), eslint (v.8.40.0), express-handlebars (v7.0.7), express-session (v1.17.3), and moment (v2.29.4). Jest (v.29.5.0) is installed for future unit testing. Also, the Insomnia application was utilized to test the functionality of routes within the program.
 
-    * `name`
+NodeJS Express.js JavaScript MySQL NPM Sequelize Nodemon Jest Insomnia ESLint
 
-    * `email`
 
-    * `password`
+Credits
 
-  * `Project`
+Our team of contributors -> Alfredo/Parvathy handled much of the backend framework, routing, and user authentication, API routing and backend framework, database modeling and frontend functionality (edit/delete functionality). john took charge of styling the application, frontend functionality, and handlebars templating. Brandan, addressed application deployment.  
 
-    * `id`: primary key
+Features
 
-    * `name`
+The application boasts a robust feature set, prominently highlighted by its API functionality, allowing users to effortlessly access a wide array of up to date news from an extensive selection of NBA outlets. This feature not only keeps users well informed but also enhances their engagement with the dynamic world of NBA news. Moreover, the application offers users the opportunity to create personalized accounts, fostering a sense of community within the platform. These accounts empower users to actively participate in discussions by posting comments on a diverse range of news articles.
 
-    * `description`
+usage Information
 
-    * `date_created`
+Usage of this application is very intuitive, once users visit the site Sportsfans, they will all the news gathered from our api. Users have the ability to make a login is they choose to be able to comment on news feeds. 
 
-    * `needed_funding`
+Suggested Future Development 
 
-    * `user_id`: foreign key that references `User.id`
+ability to comment
+have a subscription based platform
+ability to like and dislike comments
+ability to like and dislike articles
+ability to share articles
+being able to create accounts. 
 
-  * Users have many projects, and projects belong to a user.
 
-    * If a user is deleted, all associated projects are also deleted.
 
----
+Open to collaboration, if you choose to do so open an issue and modify any changes you would like to see on a feature branch and wait for approval before merging to the main branch.
 
-## 💡 Hints
+NOTICE: Contributor Covenant is released under the Creative Commons Attribution 4.0 International Public License, which requires that attribution be included.
 
-* What tools can you use to test the existing API routes if you don't yet have a front end?
+Test Instructions
 
-* Where would you place the client-side JavaScript for capturing form data?
+There is currently no unit testing written yet for this application.
 
-* How can middleware help protect routes from non logged-in users?
+License
 
-* How can Handlebars.js helpers (both built-in and custom) be used to render the desired results?
+NOTICE: This application is covered under the MIT License
 
-## 🏆 Bonus
+Have additional questions? Click the links below to us reach us through GitHub.
 
-If you have completed this activity, work through the following challenge with your partner to further your knowledge:
+John: Link to Github https://github.com/JRollins089
 
-* Add an `/edit/:id` route for logged in users to update their projects' details. Then deploy the app to Heroku!
+Parvathy: Link to Github https://github.com/Parvathyaravin
 
----
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+brandan: Link to Github https://github.com/brandanflores
+
+Alfredo: Link to Github https://github.com/Donsidious

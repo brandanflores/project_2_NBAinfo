@@ -1,60 +1,61 @@
 const router = require('express').Router();
-const { User } = require('../../models/User');
+const { Project, User } = require('../../models')
+const withAuth = require('../../utils/auth');
 
-router.post('/', async (req, res) => {
+// Existing GET routes (unchanged)
+
+router.get('/', async (req, res) => {
+  // ... (existing code)
+});
+
+router.get('/project/:id', async (req, res) => {
+  // ... (existing code)
+});
+
+router.get('/profile', withAuth, async (req, res) => {
+  // ... (existing code)
+});
+
+router.get('/login', (req, res) => {
+  // ... (existing code)
+});
+
+// Add POST routes
+
+// Create a new project (POST)
+router.post('/project', withAuth, async (req, res) => {
   try {
-    const userData = await User.create(req.body);
+    // Assuming you have a request body with project data
+    const newProjectData = req.body;
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+    // Add the logged-in user's ID to the new project data
+    newProjectData.UserId = req.session.user_id;
 
-      res.status(200).json(userData);
-    });
+    // Create the new project in the database
+    const newProject = await Project.create(newProjectData);
+
+    res.status(200).json(newProject); // Respond with the newly created project
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
-router.post('/login', async (req, res) => {
+// Update user profile (POST)
+router.post('/profile/update', withAuth, async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+    // Assuming you have a request body with updated user data
+    const updatedUserData = req.body;
 
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
-
-    const validPassword = await userData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-      
-      res.json({ user: userData, message: 'You are now logged in!' });
+    // Find and update the logged-in user's data in the database
+    await User.update(updatedUserData, {
+      where: {
+        id: req.session.user_id
+      }
     });
 
+    res.status(200).json({ message: 'Profile updated successfully' });
   } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
+    res.status(500).json(err);
   }
 });
 

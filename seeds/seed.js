@@ -23,3 +23,5 @@ const seedDatabase = async () => {
 };
 
 seedDatabase();
+
+// The seedDatabase() function uses the bulkCreate() method to seed the User table with data from userData.json.

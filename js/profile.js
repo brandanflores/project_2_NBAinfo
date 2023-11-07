@@ -6,18 +6,29 @@ const newFormHandler = async (event) => {
   const description = document.querySelector('#project-desc').value.trim();
 
   if (name && needed_funding && description) {
-    const response = await fetch(`/api/projects`, {
-      method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    // Add validation for needed_funding
+    if (isNaN(needed_funding) || needed_funding <= 0) {
+      alert('Please enter a valid funding amount');
+      return;
+    }
 
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to create project');
+    try {
+      const response = await fetch(`/api/projects`, {
+        method: 'POST',
+        body: JSON.stringify({ name, needed_funding, description }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        document.location.replace('/profile');
+      } else {
+        alert('Failed to create project');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to create project due to network error');
     }
   }
 };
@@ -26,14 +37,19 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/projects/${id}`, {
-      method: 'DELETE',
-    });
+    try {
+      const response = await fetch(`/api/projects/${id}`, {
+        method: 'DELETE',
+      });
 
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to delete project');
+      if (response.ok) {
+        document.location.replace('/profile');
+      } else {
+        alert('Failed to delete project');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to delete project due to network error');
     }
   }
 };
